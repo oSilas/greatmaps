@@ -64,11 +64,11 @@ namespace Demo.WindowsForms
             //                          
 
             // set cache mode only if no internet avaible
-            if(!Stuff.PingNetwork("pingtest.com"))
-            {
-               MainMap.Manager.Mode = AccessMode.CacheOnly;
-               MessageBox.Show("No internet connection available, going to CacheOnly mode.", "GMap.NET - Demo.WindowsForms", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //if(!Stuff.PingNetwork("pingtest.com"))
+            //{
+            //   MainMap.Manager.Mode = AccessMode.CacheOnly;
+            //   MessageBox.Show("No internet connection available, going to CacheOnly mode.", "GMap.NET - Demo.WindowsForms", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
 
             // config map         
             MainMap.MapProvider = GMapProviders.OpenStreetMap;
@@ -2491,6 +2491,12 @@ namespace Demo.WindowsForms
           }
       }
 
-      #endregion
-   }
+        #endregion
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            GMaps.Instance.PrimaryCache = new GMap.NET.CacheProviders.MsSQLPureImageCache() { ConnectionString = Properties.Settings.Default.DBConnectionstring };
+            GMaps.Instance.SecondaryCache = null;
+        }
+    }
 }
