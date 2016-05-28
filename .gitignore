@@ -26,3 +26,4 @@
 /Setup/GMap.NET - Hot Build/obj/Debug
 /Testing/TemplatedBinding/obj/Debug
 /Tools/MapCruncher/obj/Debug
+*.user
